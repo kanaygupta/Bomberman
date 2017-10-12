@@ -1,0 +1,66 @@
+TITLE- BOMBERMAN game based on python3 and OOPS principles
+
+TO RUN - Install the packages in requirements.txt and type ==python3 bomberman.py== in the terminal to start the game... 
+
+SCORING:
+	-100 for killing a enemy
+	-20 for a brick
+
+FEATURES:
+	- PEP 8 Guidelines followed mostly everywhere
+	
+	GAMEPLAY:
+		- Multiple things have different colours
+		- Frames are displayed in each bomb
+		- At explosion the area around the bomb is highlighted for a very short time
+		- Enemies have different colours based on the level of the enemy.
+		- Gameplay takes one move of bomberman or a fixed time as single entity whichever is earlier.
+		- Walls at the same place always
+		- Bricks are randomly generated
+	LEVEL:
+		- 3 levels are implemented
+			- level1: 2 enemies all easy type
+			- level2: 4 enemies out of which one is always of type hard
+			- level3: 6 enemies out of which two are of hard type
+		- After winning every level 3 lives are there and score is maintained	
+
+	ENEMY:
+		- Two different enemies- type_easy which moves randomly and type_hard which moves towards the bomberman all the time.
+		- Dynamically always atleast a single enemy is there after level 2 of type_hard type even if you kill one.
+		- Hard enemy uses manhattan distance to move closer.
+		- If bomberman moves faster this also moves faster.
+
+	BOMBERMAN:
+		- Can make a move in any direction without any obstacle.
+		- Drop only one bomb and needs to run away in 3 steps or second which ever is less.
+
+CONTROLS:
+	- A: left
+	- S: down
+	- D: right
+	- W: up
+	- B: bomb
+
+BONUS:
+	- Frames have been displayed in each frame bomb.
+	- Extra levels have been implemented.
+	- Different objects have different levels.
+	- Different enemies have been implemented.	
+OOPS:
+	- Inheritance- Enemy and bomberman have inherited the person class
+	- Encapsulation- 
+		-Encapsulation means binding and encapsulating methods and variables so that some of them can only be accessed inside the class and not even by the objects.
+		-In bomb the explode method is private and can only be called in the class only not even by the object.
+		-In bomb the neighbour method is private and can only be called in the class only not even by the object.
+	- Polymorphism- Calling same methods for different objects using the same abstraction or method
+		- Move has to be called for both enemy and bomberman so a function move_poly is there which calls each of them separately based on class instance.
+			e.g.
+			===
+			def move_poly(obj_type,level,x=0,y=0,type_easy=0):
+				if isinstance(obj_type,Bomberman):
+					return obj_type.move(level)
+				else:
+					return obj_type.move(level,x,y,type_easy)	
+			===
+	- Modularity- Every object is in from of a class that too spread in different modules which names signifying the object.				
+
